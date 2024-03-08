@@ -7,7 +7,7 @@ class TextNode:
     def __eq__(self, node2):
         if (
             self.text == node2.text and
-            self.text_type == text_type and
+            self.text_type == node2.text_type and
             self.url == node2.url
         ):
             return True
