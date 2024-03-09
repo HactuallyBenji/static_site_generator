@@ -19,9 +19,14 @@ class TestHTMLNode(unittest.TestCase):
         expected = f"<{node.tag}> with value: {node.value}, children: {node.children}, and props: {node.props}"
         self.assertEqual(expected, repr(node))
 
-    def leaf_node(self):
+    def test_leaf_node(self):
         node = LeafNode(tag="a", value="Click me!", props={"class": "test", "href": "a.com"})
         expected = f"<a class=\"test\" href=\"a.com\">Click me!</a>" 
+        self.assertEqual(expected, node.to_html())
+
+    def test_leaf_node_no_tag(self):
+        node = LeafNode(None, value="Hello!!")
+        expected = f"Hello!!"
         self.assertEqual(expected, node.to_html())
 
 if __name__ == "__main__":
